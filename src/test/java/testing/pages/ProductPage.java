@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ProductPage extends BasePage {
 
   By addToCart = By.id("submit.add-to-cart");
+  By productTitle = By.id("productTitle");
 
   public ProductPage(WebDriver driver, WebDriverWait wait) {
     super(driver, wait);
@@ -22,5 +23,9 @@ public class ProductPage extends BasePage {
   public AddCartConfirmPage addToCart() {
     driver.findElement(addToCart).click();
     return new AddCartConfirmPage(driver, wait);
+  }
+
+  public String getProductName() {
+    return driver.findElement(productTitle).getText();
   }
 }
